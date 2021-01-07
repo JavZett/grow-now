@@ -1,0 +1,42 @@
+$colorPrimario: #68a8de;
+$colorSecundario: #e5244a;
+$colorSecundarioHover: #b60c2e;
+$sombra: rgba(0, 0, 0, 0.25);
+
+section.inicio {
+  width: 100%;
+  height: calc(100vh - 65px);
+  min-height: calc(100vh - 65px);
+  position: relative;
+  h2 {
+    color: $colorPrimario;
+    font-size: 60px;
+    line-height: 96px;
+    text-align: center;
+  }
+  .TabLink {
+    i {
+      font-size: 50px;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      bottom: 10px;
+      left: calc(50% - 25px);
+      color: $colorSecundario;
+      transition: all ease 0.3s;
+      cursor: pointer;
+    }
+    &:hover i {
+      color: $colorSecundarioHover;
+    }
+  }
+}
+.slider {
+  margin: 15px 0;
+  width: 100%;
+  height: 65vh;
+  background: $colorPrimario;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

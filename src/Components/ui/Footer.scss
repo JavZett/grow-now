@@ -1,0 +1,59 @@
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+$colorPrimario: #e5244a;
+$sombra: rgba(0, 0, 0, 0.25);
+.footer {
+  box-shadow: inset 0px 0px 7px $sombra;
+  width: 100%;
+  bottom: 0;
+  background: $colorPrimario;
+  padding: 20px;
+
+  footer {
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+.redes-sociales-footer {
+  @include flex();
+  div {
+    display: inline-flex;
+    align-items: center;
+    i,
+    p {
+      font-size: 15px;
+      margin: 10px;
+    }
+    i {
+      font-size: 20px;
+    }
+  }
+}
+
+.info-normas {
+  @include flex();
+  p {
+    margin: 10px;
+  }
+}
+
+.info-footer {
+  @include flex();
+}
+
+@media screen and (max-width: 600px) {
+  .footer footer {
+    grid-template-columns: 1fr;
+  }
+}

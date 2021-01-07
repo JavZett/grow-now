@@ -1,0 +1,338 @@
+$colorPrimario: #68a8de;
+$colorSecundario: #898e92;
+$colorPrimarioHover: #266496;
+$sombra: rgba(0, 0, 0, 0.25);
+
+section.contacto {
+  font-size: 16px;
+  display: grid;
+  width: 90%;
+  margin: 1.5625em auto;
+  grid-gap: 1.875em;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    'titulo titulo'
+    'redes redes'
+    'formulario video';
+}
+.red-social-contacto {
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px $sombra;
+  i {
+    font-size: 72px;
+    width: 72px;
+    height: 72px;
+  }
+  p {
+    margin-top: 0.625em;
+    font-size: 0.875em;
+  }
+}
+.titulo {
+  font-size: 16px;
+  grid-area: titulo;
+  h1 {
+    color: $colorPrimario;
+    font-size: 4em;
+    text-align: center;
+  }
+  p {
+    font-size: 1.5em;
+    text-align: center;
+    color: $colorSecundario;
+  }
+}
+.redes {
+  grid-area: redes;
+  background: $colorPrimario;
+  padding: 1.875em;
+  border-radius: 1.875em;
+  box-shadow: 0px 4px 4px $sombra;
+  display: grid;
+  grid-gap: 0.9375em;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+}
+.formulario {
+  grid-area: formulario;
+  width: 100%;
+  h3 {
+    color: $colorPrimario;
+    text-align: center;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px $sombra;
+  }
+  .formulario-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.25em;
+    margin: 1.25rem 0;
+    input {
+      border: 0;
+      border-bottom: $colorPrimario solid 2px;
+      padding: 0.625rem 0.9375em;
+      font-size: 1em;
+      &:focus {
+        border-bottom: $colorPrimarioHover solid 2px;
+      }
+    }
+  }
+  textarea {
+    width: 100%;
+    resize: none;
+    border: 0;
+    padding: 0.625em 0.9375em;
+    border-bottom: $colorPrimario solid 2px;
+    &:focus {
+      border-bottom: $colorPrimarioHover solid 2px;
+    }
+  }
+  button {
+    color: #ffffff;
+    background-color: $colorPrimario;
+    border: 0;
+    box-shadow: 1px 1px 5px $sombra;
+    padding: 0.9375em 3.125em;
+    border-radius: 100000px;
+    display: block;
+    font-size: 1.1em;
+    margin: 1.25em auto;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    &:hover {
+      background: $colorPrimarioHover;
+    }
+  }
+}
+.video {
+  grid-area: video;
+  background: $colorSecundario;
+  border-radius: 1.25em;
+  height: 100%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  section {
+    font-size: 15px;
+  }
+  .red-social-contacto {
+    font-size: 15px;
+    i {
+      font-size: 68px;
+      width: 68px;
+      height: 68px;
+    }
+  }
+  .titulo {
+    font-size: 15px;
+    grid-area: titulo;
+  }
+  .redes {
+    font-size: 15px;
+  }
+  .formulario {
+    font-size: 15px;
+    .formulario-inputs {
+      font-size: 15px;
+      grid-template-columns: 1fr;
+    }
+    textarea {
+      font-size: 15px;
+    }
+  }
+  .video {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    font-size: 12px;
+  }
+  .red-social-contacto {
+    font-size: 13px;
+    i {
+      font-size: 58px;
+      width: 58px;
+      height: 58px;
+    }
+  }
+  .titulo {
+    font-size: 13px;
+    grid-area: titulo;
+  }
+  .redes {
+    font-size: 13px;
+  }
+  .formulario {
+    font-size: 13px;
+    .formulario-inputs {
+      font-size: 13px;
+      grid-template-columns: 1fr;
+    }
+    textarea {
+      font-size: 13px;
+    }
+  }
+  .video {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  section {
+    font-size: 13px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      'titulo titulo'
+      'redes redes'
+      'formulario formulario'
+      'video video';
+  }
+  .red-social-contacto {
+    font-size: 13px;
+    i {
+      font-size: 68px;
+      width: 68px;
+      height: 68px;
+    }
+  }
+  .titulo {
+    font-size: 13px;
+    grid-area: titulo;
+  }
+  .redes {
+    font-size: 13px;
+  }
+  .formulario {
+    font-size: 13px;
+    .formulario-inputs {
+      font-size: 13px;
+      grid-template-columns: 1fr;
+    }
+    textarea {
+      font-size: 13px;
+    }
+  }
+  .video {
+    font-size: 13px;
+    height: 20vh;
+  }
+}
+@media screen and (max-width: 500px) {
+  section {
+    font-size: 12px;
+  }
+  .red-social-contacto {
+    font-size: 12px;
+    i {
+      font-size: 68px;
+      width: 68px;
+      height: 68px;
+    }
+  }
+  .titulo {
+    font-size: 12px;
+    grid-area: titulo;
+  }
+  .redes {
+    font-size: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .formulario {
+    font-size: 12px;
+    .formulario-inputs {
+      font-size: 12px;
+      grid-template-columns: 1fr;
+    }
+    textarea {
+      font-size: 12px;
+    }
+  }
+  .video {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  section {
+    font-size: 11px;
+  }
+  .red-social-contacto {
+    font-size: 11px;
+    i {
+      font-size: 55px;
+      width: 55px;
+      height: 55px;
+    }
+  }
+  .titulo {
+    font-size: 11px;
+    grid-area: titulo;
+  }
+  .redes {
+    font-size: 11px;
+    grid-template-columns: 1fr;
+  }
+  .formulario {
+    font-size: 11px;
+    .formulario-inputs {
+      font-size: 11px;
+      grid-template-columns: 1fr;
+    }
+    textarea {
+      font-size: 11px;
+    }
+  }
+  .video {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 350px) {
+  section {
+    font-size: 10px;
+  }
+  .red-social-contacto {
+    font-size: 10px;
+    display: inline-flex;
+    i {
+      font-size: 50px;
+      width: 50px;
+      height: 50px;
+      margin-right: 0.625em;
+    }
+  }
+  .titulo {
+    font-size: 10px;
+    grid-area: titulo;
+  }
+  .redes {
+    font-size: 10px;
+    grid-template-columns: 1fr;
+  }
+  .formulario {
+    font-size: 10px;
+    .formulario-inputs {
+      font-size: 10px;
+      grid-template-columns: 1fr;
+    }
+    textarea {
+      font-size: 10px;
+    }
+  }
+  .video {
+    font-size: 10px;
+  }
+}
