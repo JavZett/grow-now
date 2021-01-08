@@ -1,0 +1,228 @@
+$sombra: rgba(0, 0, 0, 0.25);
+$colorPrimario: #e5244a;
+$colorSecundario: #68a8de;
+$colorPrimarioHover: #b60c2e;
+$colorSecundarioHover: #2a70aa;
+$colorTercero: #898e92;
+.aplicaciones {
+  width: 90%;
+  margin: 1.5625em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    'titulo titulo titulo'
+    'ventajas ventajas imagen'
+    'grid grid grid';
+  grid-gap: 1.5625em;
+}
+.encabezado {
+  grid-area: titulo;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  h1 {
+    color: $colorSecundario;
+    font-size: 4em;
+    margin-bottom: 0.2em;
+  }
+  p {
+    color: $colorTercero;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+}
+.ventajas {
+  grid-area: ventajas;
+  width: 100%;
+  font-size: 16px;
+  h2 {
+    color: $colorSecundario;
+    font-size: 2.25em;
+  }
+  ul {
+    padding: 1.25em;
+    li {
+      color: $colorTercero;
+      margin: 0.9375em 0;
+    }
+  }
+}
+.apps-grid {
+  grid-area: grid;
+  font-size: 16px;
+  width: 100%;
+  margin: 1.25em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.25em;
+  .app-grid {
+    box-shadow: 1px 1px 6px $sombra;
+    height: 350px;
+    .imagen-app {
+      width: 100%;
+      height: 65%;
+      display: flex;
+      background: #eeeeee;
+      align-items: center;
+      img {
+        display: block;
+        margin: auto;
+      }
+    }
+    .app-info {
+      padding: 1.25em;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      h3 {
+        color: $colorPrimario;
+        text-align: center;
+      }
+      .datos {
+        display: inline-flex;
+        justify-content: space-around;
+        align-items: center;
+        span {
+          margin: 0.9375em 0;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          i {
+            font-size: 1.1em;
+            margin-right: 0.25em;
+            cursor: pointer;
+          }
+          i.heart {
+            color: $colorPrimario;
+            &:hover {
+              color: $colorPrimarioHover;
+            }
+          }
+          i.coment {
+            color: $colorSecundario;
+            &:hover {
+              color: $colorSecundarioHover;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.not-found {
+  height: 70vh;
+  font-size: 16px;
+  p {
+    font-size: 3.125em;
+    margin: 1em;
+  }
+}
+@media screen and (max-width: 1024px) {
+  /*15*/
+  .apps-grid {
+    font-size: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    .app-grid {
+      height: 350px;
+      .app-info {
+        font-size: 15px;
+        .datos {
+          span {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  /*14*/
+  apps-grid {
+    font-size: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    .app-grid {
+      height: 350px;
+      .app-info {
+        font-size: 14px;
+        .datos {
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  /*13*/
+  apps-grid {
+    font-size: 13px;
+    grid-template-columns: 1fr;
+    .app-grid {
+      height: 350px;
+      .app-info {
+        font-size: 13px;
+        .datos {
+          span {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  /*12*/
+  apps-grid {
+    font-size: 12px;
+    grid-template-columns: 1fr;
+    .app-grid {
+      height: 350px;
+      .app-info {
+        font-size: 12px;
+        .datos {
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 420px) {
+  /*11*/
+  apps-grid {
+    font-size: 11px;
+    grid-template-columns: 1fr;
+    .app-grid {
+      height: 350px;
+      .app-info {
+        font-size: 11px;
+        .datos {
+          span {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 350px) {
+  /*10*/
+  apps-grid {
+    font-size: 10px;
+    grid-template-columns: 1fr;
+    .app-grid {
+      height: 350px;
+      .app-info {
+        font-size: 10px;
+        .datos {
+          span {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}

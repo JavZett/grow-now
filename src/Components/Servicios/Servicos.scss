@@ -1,0 +1,11 @@
+.servicios {
+  width: 90%;
+  margin: 1.5625em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    'titulo titulo titulo'
+    'grid grid grid';
+  grid-gap: 1.5625em;
+}

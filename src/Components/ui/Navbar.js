@@ -35,16 +35,19 @@ export default function Navbar() {
               datos={infoMenu.quieneres}
               titulo="¿Quién eres?"
               clase="col"
+              to="quieneres"
             />
             <InfoMenu
               datos={infoMenu.quienessomos}
               titulo="¿Quiénes somos?"
               clase="row"
+              to="quienessomos"
             />
             <InfoMenu
               datos={infoMenu.quenecesitas}
               titulo="¿Quién necesitas?"
               clase="col"
+              to="quienestrabajamos"
             />
           </div>
           <div className="menu-oculto-footer">
