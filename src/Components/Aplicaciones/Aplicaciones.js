@@ -12,8 +12,8 @@ function ApplicacionesScreen({ data, apps, tipo, nombre }) {
       <div className="ventajas">
         <h2>{data.subtitulo}</h2>
         <ul>
-          {data.ventajas.map((ventaja) => (
-            <li>{ventaja}</li>
+          {data.ventajas.map((ventaja, i) => (
+            <li key={i}>{ventaja}</li>
           ))}
         </ul>
       </div>

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Link as TabLink } from 'react-scroll';
 import {
@@ -27,7 +28,7 @@ function Section({ children, id, to, azul = false, last = false }) {
 }
 function Tarjeta({ infoTarjeta, doble }) {
   return (
-    <div className="card middle">
+    <div className="card">
       <div className={doble === true ? 'front doble' : 'front'}>
         <h3>{infoTarjeta.titulo}</h3>
         {doble === false && <p>{infoTarjeta.informacion}</p>}
@@ -35,7 +36,7 @@ function Tarjeta({ infoTarjeta, doble }) {
       </div>
       {doble === true && (
         <div className="back">
-          <div className="back-content middle">
+          <div className="back-content">
             <h3>{infoTarjeta.titulo}</h3>
             <p>{infoTarjeta.informacion}</p>
             <TabLink
@@ -58,14 +59,116 @@ function Tarjeta({ infoTarjeta, doble }) {
     </div>
   );
 }
+function Preview({ nombre, id, clase }) {
+  const Nombre = nombre
+    .replace(' ', '-')
+    .toLowerCase()
+    .replace('á', 'a')
+    .replace('ó', 'o');
+  return (
+    <div className={`servicio-slider ${Nombre}`}>
+      <h3 id={id} className={clase}>
+        {nombre}
+      </h3>
+    </div>
+  );
+}
+function Servicio({ servicio, id }) {
+  return (
+    <p id={`servicio-${id}`} className="servicio">
+      {servicio}
+    </p>
+  );
+}
+function Slider() {
+  return (
+    <div className="slider">
+      <div className="conjunto">
+        {/*<h3>¿En qué podemos ayudarte?</h3>*/}
+        <Servicio servicio="Marketing Digital" id="marketing-digital" />
+        <Servicio servicio="Diseño Gráfico" id="diseño" />
+        <Servicio servicio="Branding" id="branding" />
+        <Servicio servicio="Aplicaciones Web" id="web" />
+        <Servicio servicio="Aplicaciones Móviles" id="app" />
+        <div className="servicios-slider">
+          <Preview
+            nombre="Marketing Digital"
+            clase="marketing servicio-btn"
+            id="marketing"
+          />
+          <Preview nombre="Páginas Web" clase="web servicio-btn" id="web" />
+          <Preview
+            nombre="Aplicaciones Móviles"
+            clase="apps servicio-btn"
+            id="apps"
+          />
+          <Preview
+            nombre="Branding"
+            clase="branding servicio-btn"
+            id="branding"
+          />
+          <Preview
+            nombre="Diseño Gráfico"
+            clase="diseño servicio-btn"
+            id="diseño"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 export default function Contacto() {
+  let timer;
+  const agregarEvento = (elemento, servicio) => {
+    servicio.addEventListener('mouseenter', () => {
+      console.log('a');
+      elemento.classList.add('servicio-activo');
+    });
+    servicio.addEventListener('mouseleave', () => {
+      console.log('b');
+      timer = setTimeout(() => {
+        elemento.classList.remove('servicio-activo');
+      }, 200);
+    });
+    elemento.addEventListener('mouseenter', () => clearTimeout(timer));
+    elemento.addEventListener('mouseleave', () => {
+      console.log('c');
+      elemento.classList.remove('servicio-activo');
+    });
+  };
+  useEffect(() => {
+    const servicios = {
+      web: document.querySelector('#servicio-web'),
+      movil: document.querySelector('#servicio-app'),
+      branding: document.querySelector('#servicio-branding'),
+      grafico: document.querySelector('#servicio-diseño'),
+      marketing: document.querySelector('#servicio-marketing-digital'),
+    };
+    const serviciosA = document.querySelectorAll('.servicio-btn');
+    serviciosA.forEach((servicio) => {
+      switch (servicio.id) {
+        case 'marketing':
+          agregarEvento(servicios.marketing, servicio);
+          break;
+        case 'web':
+          agregarEvento(servicios.web, servicio);
+          break;
+        case 'apps':
+          agregarEvento(servicios.movil, servicio);
+          break;
+        case 'branding':
+          agregarEvento(servicios.branding, servicio);
+          break;
+        case 'diseño':
+          agregarEvento(servicios.grafico, servicio);
+          break;
+      }
+    });
+  }, []);
   return (
     <>
       <Section className="inicio" id="inicio" to="quieneres">
-        <h2>¿En qué podemos ayudarte?</h2>
-        <div className="slider">
-          <p>Desarrollo de aplicaciones</p>
-        </div>
+        <Slider />
       </Section>
       <Section className="inicio" id="quieneres" to="quienessomos">
         <h2>¿Quién eres?</h2>

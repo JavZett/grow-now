@@ -1,0 +1,64 @@
+@import '../../utils';
+@mixin flex {
+  display: flex;
+
+  align-items: center;
+}
+.slider {
+  height: 100%;
+}
+
+.conjunto {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  background: transparent;
+  @include flex();
+  flex-direction: column;
+}
+
+.servicios-slider {
+  bottom: 10%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 95%;
+  height: 20%;
+  margin: auto;
+  text-align: center;
+  grid-column-gap: em(20);
+  position: absolute;
+  z-index: 5000;
+
+  .servicio-slider {
+    height: 100%;
+    @include flex();
+    justify-content: center;
+    h3 {
+      cursor: pointer;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.servicio {
+  display: none;
+  background: red;
+  width: 100%;
+  height: 100%;
+}
+.servicio.servicio-activo {
+  animation-duration: 1.5s;
+  animation-name: servicio-aparicion;
+  display: block;
+}
+
+@keyframes servicio-aparicion {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
