@@ -75,16 +75,22 @@ function Preview({ nombre, id, clase }) {
 }
 function Servicio({ servicio, id }) {
   return (
-    <p id={`servicio-${id}`} className="servicio">
-      {servicio}
-    </p>
+    <div id={`servicio-${id}`} className="servicio">
+      <h2>{servicio}</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum fugiat
+        soluta reiciendis quia, necessitatibus quaerat sunt mollitia, vitae
+        animi distinctio ea quae, incidunt sit! Molestias non cum tempore
+        accusantium tenetur.
+      </p>
+      <img src="/images/grownow.png" alt={servicio} />
+    </div>
   );
 }
 function Slider() {
   return (
     <div className="slider">
       <div className="conjunto">
-        {/*<h3>¿En qué podemos ayudarte?</h3>*/}
         <Servicio servicio="Marketing Digital" id="marketing-digital" />
         <Servicio servicio="Diseño Gráfico" id="diseño" />
         <Servicio servicio="Branding" id="branding" />
@@ -121,18 +127,15 @@ export default function Contacto() {
   let timer;
   const agregarEvento = (elemento, servicio) => {
     servicio.addEventListener('mouseenter', () => {
-      console.log('a');
       elemento.classList.add('servicio-activo');
     });
     servicio.addEventListener('mouseleave', () => {
-      console.log('b');
       timer = setTimeout(() => {
         elemento.classList.remove('servicio-activo');
       }, 200);
     });
     elemento.addEventListener('mouseenter', () => clearTimeout(timer));
     elemento.addEventListener('mouseleave', () => {
-      console.log('c');
       elemento.classList.remove('servicio-activo');
     });
   };
