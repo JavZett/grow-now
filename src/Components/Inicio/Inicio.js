@@ -76,14 +76,18 @@ function Preview({ nombre, id, clase }) {
 function Servicio({ servicio, id }) {
   return (
     <div id={`servicio-${id}`} className="servicio">
-      <h2>{servicio}</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum fugiat
-        soluta reiciendis quia, necessitatibus quaerat sunt mollitia, vitae
-        animi distinctio ea quae, incidunt sit! Molestias non cum tempore
-        accusantium tenetur.
-      </p>
-      <img src="/images/grownow.png" alt={servicio} />
+      <div className="servicio-texto">
+        <h4>{servicio}</h4>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum fugiat
+          soluta reiciendis quia, necessitatibus quaerat sunt mollitia, vitae
+          animi distinctio ea quae, incidunt sit! Molestias non cum tempore
+          accusantium tenetur.
+        </p>
+      </div>
+      <div className="servicio-imagen">
+        <img src="/images/android.png" alt={servicio} />
+      </div>
     </div>
   );
 }

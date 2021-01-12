@@ -44,22 +44,40 @@
 
 .servicio {
   display: none;
-  background: #2a70aa;
-  width: 100%;
+  background: #68a8de;
+  width: 95%;
   height: 100%;
 }
 .servicio.servicio-activo {
   animation-duration: 1.5s;
   animation-name: servicio-aparicion;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  p {
-    color: #ffffff;
-    width: 80%;
+  height: 80%;
+  .servicio-texto {
+    @include flex();
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    display: flex;
     text-align: center;
-    font-size: em(20);
+    h4 {
+      font-size: em(40);
+      color: #ffffff;
+    }
+    p {
+      color: #ffffff;
+      font-size: em(20);
+    }
+  }
+  .servicio-imagen {
+    width: 40%;
+    height: 100%;
+    @include flex();
+    justify-content: center;
+    img {
+      width: 50%;
+    }
   }
 }
 
